@@ -1,1 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        /* Global styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            margin: 0;
+        }
+
+        section {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .content-item {
+            flex: 0 0 calc(33.33% - 20px);
+            margin-bottom: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .content-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .content-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .content-item p {
+            padding: 15px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        /* Modern colors */
+        header {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+        .content-item {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Explore</h1>
+        <p>Discover something new today!</p>
+    </header>
+
+    <section>
+        <h2>Featured Content</h2>
+        <div class="content">
+            <!-- Featured content items -->
+            <div class="content-item">
+                <img src="https://via.placeholder.com/400x200" alt="Featured Content 1">
+                <p>Featured Content 1 Description</p>
+            </div>
+            <div class="content-item">
+                <img src="https://via.placeholder.com/400x200" alt="Featured Content 2">
+                <p>Featured Content 2 Description</p>
+            </div>
+            <div class="content-item">
+                <img src="https://via.placeholder.com/400x200" alt="Featured Content 3">
+                <p>Featured Content 3 Description</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add more sections for recommended, trending, etc. -->
+
+    <footer>
+        <p>&copy; 2024 Explore Page. All rights reserved.</p>
+    </footer>
+</body>
+</html>
