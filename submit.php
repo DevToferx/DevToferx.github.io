@@ -1,29 +1,37 @@
 <?php
-$name = $_POST['name'];
-$email = $_POST['email'];
-$message = $_POST['message'];
 
-$data = [
-    'content' => "New contact form submission:\nName: $name\nEmail: $email\nMessage: $message"
-];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $name = $_POST['name'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $message = $_POST['message'] ?? '';
 
-$webhookUrl = 'https://discord.com/api/v10/webhooks/1238489636574334997/Cn2rcMQXH3meWPKCVGbaqnZfx6rBDjOx8Mgv7hCWfofQNmZc_aCxGCD0tqqNLCyz4wCW';
+    $data = [
+        'content' => "New contact form submission:\nName: $name\nEmail: $email\nMessage: $message"
+    ];
 
-$options = [
-    'http' => [
-        'method' => 'POST',
-        'header' => 'Content-Type: application/json',
-        'content' => json_encode($data)
-    ]
-];
+    $webhookUrl = 'https://discord.com/api/v10/webhooks/1238489636574334997/Cn2rcMQXH3meWPKCVGbaqnZfx6rBDjOx8Mgv7hCWfofQNmZc_aCxGCD0tqqNLCyz4wCW';
 
-$context = stream_context_create($options);
-$result = file_get_contents($webhookUrl, false, $context);
+    $options = [
+        'http' => [
+            'method' => 'POST',
+            'header' => 'Content-Type: application/json',
+            'content' => json_encode($data)
+        ]
+    ];
 
-if ($result === FALSE) {
-    // Handle error
-    echo "Error sending message to Discord webhook.";
+    $context = stream_context_create($options);
+    $result = file_get_contents($webhookUrl, false, $context);
+
+    if ($result === FALSE) {
+        // Handle error
+        echo "Error sending message to Discord webhook.";
+    } else {
+        // Message sent successfully
+        header("Location: index.html?success=true");
+        exit;
+    }
 } else {
-    // Message sent successfully
-    header("Location: index.html?success=true");
+    // If the script is accessed directly via GET method, redirect to index.html
+    header("Location: index.html");
+    exit;
 }
